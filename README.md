@@ -2,7 +2,7 @@
 Trabajo en grupo de DEW. Integrantes: Kevin,Adrian,Jesús
 ##Division de Tareas:
 
--Kevin: Diseño de Base de datos
+-Kevin: Diseño de Base de datos y diseño de POJOs y DAOs en la parte servidor
 
 -Jesus: Bienvenida//index//Menú, HTML
 
