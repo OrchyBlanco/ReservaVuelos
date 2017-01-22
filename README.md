@@ -2,24 +2,17 @@
 Trabajo en grupo de DEW. Integrantes: Kevin,Adrian,Jesús
 ##Division de Tareas:
 
-//Tareas Sin asignar: Diseño de Base de datos, 
-<br><\<Consulta de vuelos disponibles>>(*sin confirmar*)
-<br><\<Reservar Billetes>>(*sin confirmar*)
-<br><\<Bienvenida//index//Menú>>(*sin confirmar*)
-<br><\<Validaciones>>(*sin confirmar*)
-<br><\<Cambio de idioma>>(*sin confirmar*)
+-Kevin: Diseño de Base de datos
 
--Kevin:
+-Jesus: Bienvenida//index//Menú, HTML
 
--Jesus:
+-Adrian: JavaScript, Validaciones, Cambio de idioma
 
--Adrian:
-
-##Lenguaje de programación que se va a utilizar para el BackEnd: Java(*sin confirmar*)
-
+##Lenguaje de programación que se va a utilizar para el BackEnd: Java
+##IDE: NetBeans
 -------------------------------------------------------------------------------------------------------
 
-##Motor Base de datos: MySql (*sin confirmar*)
+##Motor Base de datos: MySql
 
 --------------------------------------------------------------------------------------------------------
 
@@ -32,7 +25,7 @@ Trabajo en grupo de DEW. Integrantes: Kevin,Adrian,Jesús
 
 ---------------------------------------------------------------------------------------------------------
 
-##Mockups: (*sin confirmar*)
-##Trello del Proyecto: (*sin confirmar*)
+##Mockups: https://trello-attachments.s3.amazonaws.com/587e8ea6b458d04bfb7cb592/587f27998fed85c5b58f57ef/1ccca7e2b6b9c63feeca3af04fef1f1a/MockUp_Reserva_Vuelos.png
+##Trello del Proyecto: https://trello.com/b/Ll3eRwsf/reservavuelos
 
 
