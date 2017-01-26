@@ -12,7 +12,6 @@ and open the template in the editor.
     background-color: #ff9933;
     color:#FFF;
 }
-
 .navbar {
     margin-bottom: 0;
     background-color: #f4511e;
@@ -24,8 +23,11 @@ and open the template in the editor.
     border-radius: 0;
 }
 
-.navbar li a, .navbar .navbar-brand {
-    color: #fff !important;
+.navbar .navbar-brand{
+    color:#fff !important;
+}
+.navbar li a {
+    color: #ff9933 !important;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
@@ -37,3 +39,21 @@ and open the template in the editor.
     border-color: transparent;
     color: #fff !important;
 }
+
+.cambiarIdiomas{
+    margin-top:0.7%;
+}
+
+#reservarVuelo{
+    
+    border: red dotted 2px;
+}
+#BuscarVuelos{
+   
+    border: blue dotted 2px;
+}
+#mostrarVuelos{
+   
+    border: green dotted 2px;
+}
+
