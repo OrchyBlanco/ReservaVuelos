@@ -11,21 +11,12 @@
         <!--JQUERY-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!--JQUERY-UI-->
-        <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet"/>
-        <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-        <!--DATE-PICKER-->
-        <link href="resources/css/datepicker.css" rel="stylesheet"/>
-        <script src="JS/bootstrap-datepicker.js"></script><!--Date-Picker ENGLISH-->
-        <script src="JS/bootstrap-datepicker.es.js"></script><!--Date-Picker SPANISH-->
-        <!--Falta crear el doc: bootstrap-datepicker.va.js   Date-Picker VALENCIANO-->
         <!--TOASTR-->
         <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" media="screen" rel="stylesheet" type="text/css" />
-        <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
         <!--BOOTSTRAP -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
         <!--CSS-->
@@ -48,10 +39,17 @@
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
                         </button>
+<<<<<<< HEAD
                         <ul class="dropdown-menu idiomas" role="menu">
                             <li><a href="#">Español</a></li>
                             <li><a href="#">Ingles</a></li>
                             <li><a href="#">Valenciano</a></li>
+=======
+                        <ul id="idiomas" class="dropdown-menu" role="menu">
+                            <li><a id="1" value="es" href="#">Español</a></li>
+                            <li><a id="2" value="en" href="#">Ingles</a></li>
+                            <li><a id="3" value="va" href="#">Valenciano</a></li>
+>>>>>>> e7fec866bd50350bc5d5007d2044d0116794eab1
                         </ul>
                     </div>
 
@@ -63,6 +61,7 @@
 
         <!--HEADER-->
         <div class="jumbotron text-center">
+<<<<<<< HEAD
             <div class="container-fluid">
                 <h1>¡Reserva tu vuelo al mejor precio!</h1>
 
@@ -80,6 +79,43 @@
                     <button type="button" class="btn btn-success btn-lg">Buscar Vuelo</button>
                 </h:form>
             </div>
+=======
+            <h1>¡Reserva tu vuelo al mejor precio!</h1>
+
+            <form class="form-inline">
+
+
+
+                <input type="text" class="form-control" size="50" placeholder="Origen" required="true"></input>
+                <input type="text" class="form-control" size="50" placeholder="Destino" required="true"></input>
+
+                <button type="button" class="btn btn-success btn-lg">Buscar Vuelo</button>
+
+
+            </form>
+            <!--Prueba con html para el javascript-->
+            <form class="form-vertical">
+              <label for="fechaIni">Fecha Inicial</label>
+              <input type="text" id="fechaIni" class="form-control DatePicker"/><br></br>
+
+              <label for="fechaFin">Fecha Final</label>
+              <input type="text" id="fechaFin" class="form-control DatePicker"/><br></br>
+
+              <label for="costeMax">Coste Máx (€)</label>
+              <input type="number" id="costeMax" class="form-control" value="750"/><br></br>
+
+              <label for="horaLlegada">Hora Llegada (Londres GTM)</label>
+              <input type="number" id="horaLlegada" class="form-control"/><br></br>
+
+              <label for="horaSalida">Hora Salida (Londres GTM)</label>
+              <input type="number" id="horaSalida" class="form-control"/><br></br>
+
+              <button type="button" id="botonSubmit" class="btn btn-success">Buscar Vuelo <span class="glyphicon glyphicon-search "></span></button>
+              <div id="errors" style="display='none'"></div>
+            </form>
+            <!--Prueba con html para el javascript-->
+
+>>>>>>> e7fec866bd50350bc5d5007d2044d0116794eab1
         </div>
         <!--Fin HEADER-->
         <!--BUSCAR VUELO-->

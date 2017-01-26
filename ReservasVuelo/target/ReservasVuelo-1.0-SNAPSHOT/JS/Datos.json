@@ -1,0 +1,35 @@
+{
+
+    "DatosReservaVuelos": {
+
+        "fechaEspanol": {
+            "dateFormat": "dd-mm-yy",
+            "dayNames": ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"],
+            "dayNamesMin": ["Lu", "Ma", "Mi", "Ju", "Vi", "Sa", "Do"],
+            "dayNamesShort": [ "Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom" ],
+            "monthNames":[ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" ],
+            "regional": "es"
+        },
+
+        "fechaIngles": {
+            "dateFormat": "yy-mm-dd",
+            "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+            "dayNamesShort": [ "Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam" ],
+            "monthNamesShort":[ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+            "monthNames":[ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ],
+            "regional": "en"
+        },
+
+        "fechaValenciano": {
+            "dateFormat": "dd-mm-yy",
+            "dayNames": ["Dilluns", "Dimarts", "Dimecres", "Dijous ", "Divendres ", "Dissabte ", "Diumenge "],
+            "dayNamesMin": ["Dl", "Dt", "Dc", "Dj", "Dv", "Ds", "Dg"],
+            "dayNamesShort": [ "Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom" ],
+            "monthNamesShort":[ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ],
+            "monthNames":[ "Gener", "febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "November", "Desembre" ],
+            "regional": "es"
+        }
+    }
+
+}

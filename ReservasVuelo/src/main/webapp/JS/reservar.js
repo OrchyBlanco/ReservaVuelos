@@ -17,9 +17,18 @@ window.addEventListener("DOMContentLoaded", function() {
         "showMethod": "fadeIn",
         "hideMethod": "fadeOut"
     }
-    //$('#campoFechaIni').datepicker();
+    reservar = new ReservaVuelos();
+    $.getJSON("JS/Datos.json", function(datos) {
+      that.fechas(datos.DatosReservaVuelos.fechaEspanol);
+    })
     var fechaFin = $("#campoFechaFin").find("input");
     var fechaIni = $("#campoFechaIni").find("input");
-    reservar = new ReservaVuelos();
+    var botonSub = $("#botonSubmit");
+    var idiomas = $("#idiomas").find("a").click(function(ev){
+        reservar.crearFechas(ev);
+    })
+    botonSub.click(function(){
+      reservar.enviarDatos();
+    });
 
 })
