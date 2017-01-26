@@ -39,21 +39,17 @@
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                             <span class="caret"></span>
                         </button>
-<<<<<<< HEAD
                         <ul class="dropdown-menu idiomas" role="menu">
                             <li><a href="#">Español</a></li>
                             <li><a href="#">Ingles</a></li>
                             <li><a href="#">Valenciano</a></li>
-=======
-                        <ul id="idiomas" class="dropdown-menu" role="menu">
-                            <li><a id="1" value="es" href="#">Español</a></li>
-                            <li><a id="2" value="en" href="#">Ingles</a></li>
-                            <li><a id="3" value="va" href="#">Valenciano</a></li>
->>>>>>> e7fec866bd50350bc5d5007d2044d0116794eab1
+                            <ul id="idiomas" class="dropdown-menu" role="menu">
+                                <li><a id="1" value="es" href="#">Español</a></li>
+                                <li><a id="2" value="en" href="#">Ingles</a></li>
+                                <li><a id="3" value="va" href="#">Valenciano</a></li>
+                            </ul>
                         </ul>
                     </div>
-
-
                 </div>
             </div>
         </nav>
@@ -61,25 +57,24 @@
 
         <!--HEADER-->
         <div class="jumbotron text-center">
-<<<<<<< HEAD
+
             <div class="container-fluid">
                 <h1>¡Reserva tu vuelo al mejor precio!</h1>
 
                 <h:form class="form-inline">
                     <!--DATE-PICKER INICIO-->
                     <div class="input-append date form-group" id="campoFechaIni" data-date="12-02-2017" data-date-format="dd-mm-yyyy">
-                        <input id="campoFechaFin " class="campoFecha form-control" size="50" type="text" value="" placeholder="12-02-2017"/>
+                        <input id="fechaIni " class="campoFecha form-control" size="50" type="text" value="" placeholder="12-02-2017"/>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
                     <!--DATE-PICKER FIN-->
                     <div class="input-append date form-group" data-date="18-02-2017" data-date-format="dd-mm-yyyy">
-                        <input id="campoFechaFin " class="campoFecha form-control" size="50" type="text" value="" placeholder="18-02-2017"/>
+                        <input id="fechaFin " class="campoFecha form-control" size="50" type="text" value="" placeholder="18-02-2017"/>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
                     <button type="button" class="btn btn-success btn-lg">Buscar Vuelo</button>
                 </h:form>
             </div>
-=======
             <h1>¡Reserva tu vuelo al mejor precio!</h1>
 
             <form class="form-inline">
@@ -93,29 +88,28 @@
 
 
             </form>
-            <!--Prueba con html para el javascript-->
+            <!--Prueba con html para el javascript
             <form class="form-vertical">
-              <label for="fechaIni">Fecha Inicial</label>
-              <input type="text" id="fechaIni" class="form-control DatePicker"/><br></br>
+                <label for="fechaIni">Fecha Inicial</label>
+                <input type="text" id="fechaIni" class="form-control DatePicker"/><br></br>
 
-              <label for="fechaFin">Fecha Final</label>
-              <input type="text" id="fechaFin" class="form-control DatePicker"/><br></br>
+                <label for="fechaFin">Fecha Final</label>
+                <input type="text" id="fechaFin" class="form-control DatePicker"/><br></br>
 
-              <label for="costeMax">Coste Máx (€)</label>
-              <input type="number" id="costeMax" class="form-control" value="750"/><br></br>
+                <label for="costeMax">Coste Máx (€)</label>
+                <input type="number" id="costeMax" class="form-control" value="750"/><br></br>
 
-              <label for="horaLlegada">Hora Llegada (Londres GTM)</label>
-              <input type="number" id="horaLlegada" class="form-control"/><br></br>
+                <label for="horaLlegada">Hora Llegada (Londres GTM)</label>
+                <input type="number" id="horaLlegada" class="form-control"/><br></br>
 
-              <label for="horaSalida">Hora Salida (Londres GTM)</label>
-              <input type="number" id="horaSalida" class="form-control"/><br></br>
+                <label for="horaSalida">Hora Salida (Londres GTM)</label>
+                <input type="number" id="horaSalida" class="form-control"/><br></br>
 
-              <button type="button" id="botonSubmit" class="btn btn-success">Buscar Vuelo <span class="glyphicon glyphicon-search "></span></button>
-              <div id="errors" style="display='none'"></div>
+                <button type="button" id="botonSubmit" class="btn btn-success">Buscar Vuelo <span class="glyphicon glyphicon-search "></span></button>
+                <div id="errors" ></div>
             </form>
-            <!--Prueba con html para el javascript-->
+            Prueba con html para el javascript-->
 
->>>>>>> e7fec866bd50350bc5d5007d2044d0116794eab1
         </div>
         <!--Fin HEADER-->
         <!--BUSCAR VUELO-->
@@ -126,10 +120,6 @@
         </div>
         <!--Tabla de vuelos-->
         <div id="mostrarVuelos">
-
-        </div>
-        <!--SVG || Reserva asiento-->
-        <div id="reservarVuelo">
             <p:dataTable id="radioDT" var="car" value="Seleccion vuelos 'BEAN'" selection="Vuelo Seleccionado 'Bean' " rowKey="ID de vuelo 'BEAN' ">
                 <f:facet name="header">
                     RadioButton
@@ -151,6 +141,10 @@
                     <p:commandButton process="radioDT" update=":form:carDetail" icon="ui-icon-search" value="View" oncomplete="PF('carDialog').show()" />
                 </f:facet>
             </p:dataTable>
+        </div>
+        <!--SVG || Reserva asiento-->
+        <div id="reservarVuelo">
+
         </div>
 
         <!--JS -->
