@@ -10,7 +10,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
-import javax.naming.NamingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,6 +48,7 @@ public class DaoFactory implements ConnectionProvider {
         return myInstance;
     }
 
+    @Override
     public Connection getConnection() {
         Connection conn = null;
         LOGGER.debug("Creando conexión con la base de datos...");
@@ -61,6 +61,7 @@ public class DaoFactory implements ConnectionProvider {
         return conn;
     }
 
+    @Override
     public void closeConnection(Connection conn) {
         try {
             LOGGER.debug("Cerrando conexión...");
