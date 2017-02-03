@@ -30,7 +30,7 @@ public class DaoFactory implements ConnectionProvider {
         DATACONFIG.setDataBaseUrl(rb.getString("database.url"));
         DATACONFIG.setDataBaseUser(rb.getString("database.user"));
         DATACONFIG.setDataBasePassword(rb.getString("database.password"));
-        LOGGER.debug("Pidiendo datasource a jdbc/sakila ... ");
+        LOGGER.debug("Pidiendo datasource a jdbc/ReservaVuelos ... ");
         try{
             String driverClassName = rb.getString("database.driver");
             Class.forName(driverClassName);

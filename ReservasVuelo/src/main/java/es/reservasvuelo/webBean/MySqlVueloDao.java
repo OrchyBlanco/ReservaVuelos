@@ -30,16 +30,16 @@ class MySqlVueloDao implements VueloDao{
 
     @Override
     public List<Vuelo> selectAll() {
-        String query = "Select * from cliente";
-        List<Vuelo> clientes = new ArrayList<>();
+        String query = "Select * from vuelo";
+        List<Vuelo> vuelos = new ArrayList<>();
         try {
             Connection conn = null;
-            conn = DriverManager.getConnection("//localhost:3306/ForVagos", "2dawa", "2dawA2!06");
+            conn = DriverManager.getConnection("//localhost:3306/ReservaVuelos", "2dawa", "2dawA2!06");
             PreparedStatement pstm = conn.prepareStatement(query);
             try (ResultSet rs = pstm.executeQuery()) {
                 while (rs.next()) {
                     Vuelo vuelo = new Vuelo();
-                    clientes.add(vuelo);
+                    vuelos.add(vuelo);
                 }
             } catch (SQLException ex) {
                 
@@ -47,7 +47,7 @@ class MySqlVueloDao implements VueloDao{
         } catch (SQLException ex) {
 
         }
-        return clientes;
+        return vuelos;
     }
 
     @Override

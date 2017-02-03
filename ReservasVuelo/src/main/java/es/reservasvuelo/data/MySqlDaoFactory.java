@@ -20,11 +20,11 @@ public class MySqlDaoFactory {
 
     private static MySqlDaoFactory myInstance;
     private DataBaseConfig dbC;
-    private String query = "SELECT * FROM hotel";
+    private String query = "SELECT * FROM vueloGenerico";
 
     private MySqlDaoFactory() {
 
-        ResourceBundle rb = ResourceBundle.getBundle("sakila");
+        ResourceBundle rb = ResourceBundle.getBundle("ReservaVuelos");
         dbC = new DataBaseConfig();
         dbC.setDriverClassName(rb.getString("database.driver"));
         dbC.setDatabaseUrl(rb.getString("database.url"));

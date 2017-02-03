@@ -28,11 +28,11 @@ class MySqlVueloGenericolDao implements VueloGenericoDao{
 
     @Override
     public List<VueloGenerico> selectAll() {
-        String query = "Select * from hotel";
+        String query = "Select * from vueloGenerico";
         List<VueloGenerico> vuelosgenericos = new ArrayList<>();
         try {
             Connection conn = null;
-            conn = DriverManager.getConnection("//localhost:3306/ForVagos", "2dawa", "2dawA2!06");
+            conn = DriverManager.getConnection("//localhost:3306/ReservaVuelos", "2dawa", "2dawA2!06");
             PreparedStatement pstm = conn.prepareStatement(query);
             try (ResultSet rs = pstm.executeQuery()) {
                 while (rs.next()) {
