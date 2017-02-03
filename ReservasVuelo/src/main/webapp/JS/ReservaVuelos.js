@@ -107,6 +107,8 @@ ReservaVuelos.prototype.validarFecha = function(campo){
   }
 }
 ReservaVuelos.prototype.fechas = function(options) {
+    var fechaFin = $("#campoFechaFin").find("input");
+    var fechaIni = $("#campoFechaIni").find("input");
     //Elimina los datepickers de los campos fecha para volver a crearlos con el nuevo objeto options
     $("#fechaIni").datepicker("destroy");
     $("#fechaFin").datepicker("destroy");
