@@ -19,8 +19,10 @@ window.addEventListener("DOMContentLoaded", function() {
     }
     reservar = new ReservaVuelos();
     $.getJSON("JS/Datos.json", function(datos) {
-      reservar.fechas(datos.DatosReservaVuelos.fechaEspanol);
+      that.fechas(datos.DatosReservaVuelos.fechaEspanol);
     })
+    var fechaFin = $("#campoFechaFin").find("input");
+    var fechaIni = $("#campoFechaIni").find("input");
     var botonSub = $("#botonSubmit");
     var idiomas = $("#idiomas").find("a").click(function(ev){
         reservar.crearFechas(ev);

@@ -107,14 +107,11 @@ ReservaVuelos.prototype.validarFecha = function(campo){
   }
 }
 ReservaVuelos.prototype.fechas = function(options) {
-    var fechaFin = $("#campoFechaFin").find("input");
-    var fechaIni = $("#campoFechaIni").find("input");
     //Elimina los datepickers de los campos fecha para volver a crearlos con el nuevo objeto options
-    fechaIni.datepicker("destroy");
-    fechaFin.datepicker("destroy");
-    
-    fechaIni.datepicker(options);
-    fechaFin.datepicker(options);
+    $("#fechaIni").datepicker("destroy");
+    $("#fechaFin").datepicker("destroy");
+    $("#fechaIni").datepicker(options);
+    $("#fechaFin").datepicker(options);
 }
 ReservaVuelos.prototype.enviarDatos = function(){
   var error="";
@@ -125,17 +122,13 @@ ReservaVuelos.prototype.enviarDatos = function(){
   var campoFechaFin = $("#campoFechaFin");
   if(this.validarCosteMaximo(costeMax)==false){
     error += "Hay un error en el campo costes máximos<br>";
-  }
-  if(this.validarHoraLlegada(horaLlegada)==false){
+  }else if(this.validarHoraLlegada(horaLlegada)==false){
     error += "Hay un error en el campo hora llegada<br>";
-  }
-  if(this.validarHoraSalida(horaSalida, horaLlegada)==false){
+  }else if(this.validarHoraSalida(horaSalida, horaLlegada)==false){
     error += "Hay un error en el campo hora salida<br>";//<---------FALLA
-  }
-  if(this.validarFecha(campoFechaIni)==false){
+  }else if(this.validarFecha(campoFechaIni)==false){
     error += "Hay un error en el campo fecha inicio<br>";
-  }
-  if(this.validarFecha(campoFechaFin)==false){
+  }else if(this.validarFecha(campoFechaFin)==false){
     error += "Hay un error en el campo fecha fin<br>";
   }
   if(error==""){

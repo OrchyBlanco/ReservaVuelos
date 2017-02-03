@@ -18,6 +18,14 @@ public class Vuelo {
     public Vuelo() {
     }
 
+    public short getVuelo_id() {
+        return vuelo_id;
+    }
+
+    public void setVuelo_id(short vuelo_id) {
+        this.vuelo_id = vuelo_id;
+    }
+
     public int getPlazasLibres() {
         return plazasLibres;
     }
@@ -34,6 +42,14 @@ public class Vuelo {
         this.fecha = fecha;
     }
 
-    
+    public int getnVuelo() {
+        return nVuelo;
+    }
+
+    public void setnVuelo(int nVuelo) {
+        this.nVuelo = nVuelo;
+    }
+
+
     
 }

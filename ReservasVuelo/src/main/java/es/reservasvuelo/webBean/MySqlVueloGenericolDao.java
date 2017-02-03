@@ -28,7 +28,7 @@ class MySqlVueloGenericolDao implements VueloGenericoDao{
 
     @Override
     public List<VueloGenerico> selectAll() {
-        String query = "Select * from vueloGenerico";
+        String query = "Select nVuelo, horaSalida, horaLlegada, precio, capacidad, ordenAsiento from vueloGenerico";
         List<VueloGenerico> vuelosgenericos = new ArrayList<>();
         try {
             Connection conn = null;
@@ -37,6 +37,13 @@ class MySqlVueloGenericolDao implements VueloGenericoDao{
             try (ResultSet rs = pstm.executeQuery()) {
                 while (rs.next()) {
                     VueloGenerico vuelosgenerico = new VueloGenerico();
+                    vuelosgenerico.setnVuelo(rs.getShort(1));
+                    vuelosgenerico.setHoraSalida(rs.getString(2));
+                    vuelosgenerico.setHoraLlegada(rs.getString(3));
+                    vuelosgenerico.setPrecio(rs.getDouble(4));
+                    vuelosgenerico.setCapacidad(rs.getInt(5));
+                    vuelosgenerico.setOrdenAsiento(rs.getString(6));
+                    
                     vuelosgenericos.add((VueloGenerico) vuelosgenericos);
                 }
             } catch (SQLException ex) {

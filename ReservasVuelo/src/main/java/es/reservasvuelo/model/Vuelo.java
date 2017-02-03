@@ -56,7 +56,8 @@ public class Vuelo implements java.io.Serializable {
     public void setnVuelo(int nVuelo) {
         this.nVuelo = nVuelo;
     }
-    
+
+ 
     
 }
 

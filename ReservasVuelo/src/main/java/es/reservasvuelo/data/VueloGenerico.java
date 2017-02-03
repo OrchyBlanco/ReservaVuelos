@@ -23,6 +23,14 @@ public class VueloGenerico {
     public VueloGenerico() {
     }
 
+    public Short getnVuelo() {
+        return nVuelo;
+    }
+
+    public void setnVuelo(Short nVuelo) {
+        this.nVuelo = nVuelo;
+    }
+
     public String getHoraSalida() {
         return horaSalida;
     }
@@ -62,6 +70,23 @@ public class VueloGenerico {
     public void setOrdenAsiento(String ordenAsiento) {
         this.ordenAsiento = ordenAsiento;
     }
+
+    public Short getAeropuerto_id() {
+        return aeropuerto_id;
+    }
+
+    public void setAeropuerto_id(Short aeropuerto_id) {
+        this.aeropuerto_id = aeropuerto_id;
+    }
+
+    public Short getAerolinea_id() {
+        return aerolinea_id;
+    }
+
+    public void setAerolinea_id(Short aerolinea_id) {
+        this.aerolinea_id = aerolinea_id;
+    }
+
 
     
     

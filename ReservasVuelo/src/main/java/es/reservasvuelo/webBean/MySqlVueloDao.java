@@ -30,7 +30,7 @@ class MySqlVueloDao implements VueloDao{
 
     @Override
     public List<Vuelo> selectAll() {
-        String query = "Select * from vuelo";
+        String query = "Select vuelo_id, plazasLibres, fechas, nVuelos from vuelo";
         List<Vuelo> vuelos = new ArrayList<>();
         try {
             Connection conn = null;
@@ -39,6 +39,10 @@ class MySqlVueloDao implements VueloDao{
             try (ResultSet rs = pstm.executeQuery()) {
                 while (rs.next()) {
                     Vuelo vuelo = new Vuelo();
+                    vuelo.setVuelo_id(rs.getShort(1));
+                    vuelo.setPlazasLibres(rs.getInt(2));
+                    vuelo.setFecha(rs.getString(3));
+                    vuelo.setnVuelo(rs.getInt(4));
                     vuelos.add(vuelo);
                 }
             } catch (SQLException ex) {

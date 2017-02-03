@@ -89,8 +89,6 @@ public class VueloGenerico  implements java.io.Serializable {
         this.aerolinea_id = aerolinea_id;
     }
 
-    
-
 
 }
 
