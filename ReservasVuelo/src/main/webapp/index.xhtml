@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
 
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -53,87 +54,32 @@
         </nav>
         <!--                Fin NAVEGADOR-->
 
-        <!--        HEADER
-        -->                <div class="jumbotron text-center">
-
+        <!--        HEADER        -->             
+        <div class="jumbotron text-center">
             <div class="container-fluid">
                 <h1>#{msg['header.eslogan']}</h1>
-
                 <h:form class="form-inline">
-                    <!--                            DATE-PICKER INICIO-->
-                    <div class="input-append date " id="campoFechaIni" data-date="12-02-2017" data-date-format="dd-mm-yyyy">
+                    <!--DATE-PICKER INICIO-->
+                    <div class="input-append date form-group" id="campoFechaIni" data-date="12-02-2017" data-date-format="dd-mm-yyyy">
 
                         <input id="fechaIni " class="campoFecha form-control DatePicker" size="20" type="text" value="" placeholder="12-02-2017"/>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
                     <!--                            DATE-PICKER FIN-->
-                    <div class="input-append date form-group" data-date="18-02-2017" data-date-format="dd-mm-yyyy">
+                    <div id="campoFechaFin" class="input-append date form-group" data-date="18-02-2017" data-date-format="dd-mm-yyyy">
                         <input id="fechaFin " class="campoFecha form-control DatePicker" size="20" type="text" value="" placeholder="18-02-2017"/>
                         <span class="add-on"><i class="icon-th"></i></span>
                     </div>
                     <button type="button" class="btn btn-success btn-lg">#{msg['header.buscar']}<span class="glyphicon glyphicon-search "></span></button>
-                 </h:form>
+                </h:form>
             </div>
-            
-            <!--                    Prueba con html para el javascript-->
-            <form class="form-vertical">
-                <label for="fechaIni">Fecha Inicial</label>
-                <input type="text" id="fechaIni" class="form-control DatePicker"/><br></br>
-
-                <label for="fechaFin">Fecha Final</label>
-                <input type="text" id="fechaFin" class="form-control DatePicker"/><br></br>
-
-                <label for="costeMax">Coste Máx (€)</label>
-                <input type="number" id="costeMax" class="form-control" value="750"/><br></br>
-
-                <label for="horaLlegada">Hora Llegada (Londres GTM)</label>
-                <input type="number" id="horaLlegada" class="form-control"/><br></br>
-
-                <label for="horaSalida">Hora Salida (Londres GTM)</label>
-                <input type="number" id="horaSalida" class="form-control"/><br></br>
-
-                <button type="button" id="botonSubmit" class="btn btn-success">Buscar Vuelo <span class="glyphicon glyphicon-search "></span></button>
-                <div id="errors" ></div>
-            </form>
-            <!--                    Prueba con html para el javascript-->
-
         </div>
-        <!--                Fin HEADER
-                        BUSCAR VUELO
-                        <div id="BuscarVuelos" class="col-md-4"> 
-                            <h:panelGrid columns="1">
-                
-                                <h:selectOneMenu value="#{idioma.codigoLocal}" onchange="submit()"
-                                                 valueChangeListener="#{idioma.countryLocaleCodeChanged}">
-                                    <f:selectItems value="#{idioma.paisesInMap}" />
-                                </h:selectOneMenu>
-                            </h:panelGrid>
-                
-                        </div>
-                        Tabla de vuelos
-                        <div id="mostrarVuelos">
-                            <p:dataTable id="radioDT" var="car" value="Seleccion vuelos 'BEAN'" selection="Vuelo Seleccionado 'Bean' " rowKey="ID de vuelo 'BEAN' ">
-                                <f:facet name="header">
-                                    RadioButton
-                                </f:facet>
-                                <p:column selectionMode="single" style="width:16px;text-align:center"/>
-                                <p:column headerText="Precio">
-                                    <h:outputText value="Precio 'Añadir BEAN' " />
-                                </p:column>
-                                <p:column headerText="Origen">
-                                    <h:outputText value="aeropuertoorigen" />
-                                </p:column>
-                                <p:column headerText="Destino">
-                                    <h:outputText value="Aeropuerto Destino" />
-                                </p:column>
-                                <p:column headerText="Plazas libres">
-                                    <h:outputText value="Numero plazas libres" />
-                                </p:column>
-                                <f:facet name="footer">
-                                    <p:commandButton process="radioDT" update=":form:carDetail" icon="ui-icon-search" value="View" oncomplete="PF('carDialog').show()" />
-                                </f:facet>
-                            </p:dataTable>
-                        </div>-->
+        <!--FIN HEADER-->  
+        
+        <!--BUSCAR VUELO-->
+       
+        <!--Fin Buscar Vuelos-->
+       
         <!--SVG || Reserva asiento-->
 
 

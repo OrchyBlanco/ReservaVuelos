@@ -19,7 +19,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 /**
  *
- * @author 2dawb
+ * @author PC-Jesus
  */
 @ManagedBean(name = "language")
 @SessionScoped
