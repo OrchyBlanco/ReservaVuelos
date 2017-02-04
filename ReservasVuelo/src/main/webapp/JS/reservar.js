@@ -28,5 +28,8 @@ window.addEventListener("DOMContentLoaded", function() {
     botonSub.click(function(){
       reservar.enviarDatos();
     });
+    $("#botonSidebar").click(function(ev) {
+        reservar.hideShowForm();
+    })
 
 })
