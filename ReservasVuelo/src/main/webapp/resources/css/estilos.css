@@ -12,6 +12,7 @@ and open the template in the editor.
 .jumbotron{
     background-color: #ff9933;
     color:#FFF;
+    margin-bottom: 0px;
 }
 .navbar {
     margin-bottom: 0;
@@ -45,17 +46,14 @@ and open the template in the editor.
     margin-top:0.7%;
 }
 
-#reservarVuelo{
-    
-    border: red dotted 2px;
-}
-#BuscarVuelos{
-   
-    border: blue dotted 2px;
-}
-#mostrarVuelos{
-   
-    border: green dotted 2px;
+#contenido{
+   padding: 0px;
 }
 
-/*Formulario desplegable*/
+#buscarVuelo{
+    float: left;
+    background-color: #0088cc;
+    margin-top: 0px;
+    border-radius: 0px 0px 20px 0px;
+    color: white;
+}

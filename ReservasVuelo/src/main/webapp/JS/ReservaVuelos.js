@@ -148,11 +148,12 @@ ReservaVuelos.prototype.enviarDatos = function(){
 //Función que oculta el formulario n1 con una animación
 ReservaVuelos.prototype.hideShowForm = function(){
     //j_idt15 es el id del formulario 1 
-    if($("#j_idt15").css("display")=="none"){
-        $("#j_idt15").show("slide", { direction: "left" }, 1000);
+    //buscarVuelo div que contiene el formulario (JESUS)
+    if($("#buscarVuelo").css("display")=="none"){
+        $("#buscarVuelo").show("slide", { direction: "left" }, 1000);
     }   
     else{
-        $("#j_idt15").hide("slide", { direction: "left" }, 1000);
+        $("#buscarVuelo").hide("slide", { direction: "left" }, 1000);
     }
     
 }

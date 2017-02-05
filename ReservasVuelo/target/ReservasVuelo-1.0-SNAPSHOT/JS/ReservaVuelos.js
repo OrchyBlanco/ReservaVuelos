@@ -110,10 +110,10 @@ ReservaVuelos.prototype.fechas = function(options) {
     var fechaFin = $("#campoFechaFin").find("input");
     var fechaIni = $("#campoFechaIni").find("input");
     //Elimina los datepickers de los campos fecha para volver a crearlos con el nuevo objeto options
-    $("#fechaIni").datepicker("destroy");
-    $("#fechaFin").datepicker("destroy");
-    $("#fechaIni").datepicker(options);
-    $("#fechaFin").datepicker(options);
+    fechaIni.datepicker("destroy");
+    fechaFin.datepicker("destroy");
+    fechaIni.datepicker(options);
+    fechaFin.datepicker(options);
 }
 ReservaVuelos.prototype.enviarDatos = function(){
   var error="";
@@ -145,7 +145,18 @@ ReservaVuelos.prototype.enviarDatos = function(){
   }
 
 }
-
+//Función que oculta el formulario n1 con una animación
+ReservaVuelos.prototype.hideShowForm = function(){
+    //j_idt15 es el id del formulario 1 
+    //buscarVuelo div que contiene el formulario (JESUS)
+    if($("#buscarVuelo").css("display")=="none"){
+        $("#buscarVuelo").show("slide", { direction: "left" }, 1000);
+    }   
+    else{
+        $("#buscarVuelo").hide("slide", { direction: "left" }, 1000);
+    }
+    
+}
 /*
 
 **************TO***DO*****************
