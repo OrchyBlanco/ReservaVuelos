@@ -12,6 +12,11 @@
         <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet"/>
         <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
         <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <!--DATE-PICKER-->
+        <link href="resources/css/datepicker.css" rel="stylesheet"/>
+        <script src="JS/bootstrap-datepicker.js"></script><!--Date-Picker ENGLISH-->
+        <script src="JS/bootstrap-datepicker.es.js"></script><!--Date-Picker SPANISH-->
+        <!--Falta crear el doc: bootstrap-datepicker.va.js   Date-Picker VALENCIANO-->
         <!--TOASTR-->
         <link href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" media="screen" rel="stylesheet" type="text/css" />
         <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -58,8 +63,19 @@
             <h1>¡Reserva tu vuelo al mejor precio!</h1>
 
             <form class="form-inline">
+              <!--DATE-PICKER INICIO-->
+                <div class="input-append date" id="campoFechaIni" data-date="12-02-2017" data-date-format="dd-mm-yyyy">
+                  <input class="campoFecha" size="16" type="text" value="12-02-2017"/>
+                  <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+              <!--DATE-PICKER FIN-->
+                <div class="input-append date" data-date="18-02-2017" data-date-format="dd-mm-yyyy">
+                  <input id="campoFechaFin" class="campoFecha" size="16" type="text" value="18-02-2017"/>
+                  <span class="add-on"><i class="icon-th"></i></span>
+                </div>
 
-                <input type="email" class="form-control" size="50" placeholder="Origen" required="true"></input>
+
+                <input type="text" class="form-control" size="50" placeholder="Origen" required="true"></input>
                 <input type="text" class="form-control" size="50" placeholder="Destino" required="true"></input>
 
                 <button type="button" class="btn btn-success btn-lg">Buscar Vuelo</button>
@@ -69,8 +85,10 @@
         </div>
         <!--Fin HEADER-->
         <!--BUSCAR VUELO-->
-        
+        <!--JS -->
+        <script src="JS/ReservaVuelos.js"></script>
+        <script src="JS/reservar.js"></script>
     </h:body>
-    <!--JS -->
-</html>
 
+
+</html>
