@@ -31,6 +31,8 @@ create table if not exists vueloGenerico
 nVuelo int not null auto_increment,
 horaSalida int,
 horaLlegada int,
+aeropuerto_origen varchar(100) not null,
+aeropuerto_destino varchar(100) not null,
 precio double not null,
 capacidad int not null,
 ordenAsiento varchar(150) not null,
