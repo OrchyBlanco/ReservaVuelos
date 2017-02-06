@@ -29,8 +29,8 @@ drop table if exists vueloGenerico;
 create table if not exists vueloGenerico
 (
 nVuelo int not null auto_increment,
-horaSalida int,
-horaLlegada int,
+horaSalida varchar(100) not null,
+horaLlegada varchar(100) not null,
 aeropuerto_origen varchar(100) not null,
 aeropuerto_destino varchar(100) not null,
 precio double not null,
@@ -86,7 +86,7 @@ alter table vueloGenerico add constraint chk_horaLlegada check(horaLlegada<24 & 
 
 /*
 *
-*
+*Insertar datos prueba <kevin>
 *
 */
 
