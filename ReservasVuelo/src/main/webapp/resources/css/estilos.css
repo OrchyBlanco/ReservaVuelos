@@ -51,6 +51,7 @@ and open the template in the editor.
 }
 
 #buscarVuelo{
+    display: none;
     float: left;
     background-color: #0088cc;
     margin-top: 0px;
