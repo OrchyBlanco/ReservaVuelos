@@ -106,6 +106,7 @@ ReservaVuelos.prototype.validarFecha = function(campo){
     return false;
   }
 }
+//Crea los DatePickers
 ReservaVuelos.prototype.fechas = function(options) {
     var fechaFin = $("#campoFechaFin").find("input");
     var fechaIni = $("#campoFechaIni").find("input");
@@ -115,6 +116,7 @@ ReservaVuelos.prototype.fechas = function(options) {
     fechaIni.datepicker(options);
     fechaFin.datepicker(options);
 }
+
 ReservaVuelos.prototype.enviarDatos = function(){
   var error="";
   var costeMax = $("#costeMax");
@@ -124,21 +126,27 @@ ReservaVuelos.prototype.enviarDatos = function(){
   var campoFechaFin = $("#campoFechaFin");
   if(this.validarCosteMaximo(costeMax)==false){
     error += "Hay un error en el campo costes máximos<br>";
-  }else if(this.validarHoraLlegada(horaLlegada)==false){
+  }
+  if(this.validarHoraLlegada(horaLlegada)==false){
     error += "Hay un error en el campo hora llegada<br>";
-  }else if(this.validarHoraSalida(horaSalida, horaLlegada)==false){
+  } 
+  if(this.validarHoraSalida(horaSalida, horaLlegada)==false){
     error += "Hay un error en el campo hora salida<br>";//<---------FALLA
-  }else if(this.validarFecha(campoFechaIni)==false){
+  }
+  if(this.validarFecha(campoFechaIni)==false){
     error += "Hay un error en el campo fecha inicio<br>";
-  }else if(this.validarFecha(campoFechaFin)==false){
+  }
+  if(this.validarFecha(campoFechaFin)==false){
     error += "Hay un error en el campo fecha fin<br>";
   }
+  //No mostrar errores 
   if(error==""){
     $("#errors").hide();
     $("#errors").text = error;
-    //TO-DO
-    //<---Mejorar la manera de informar al usuario de TODOS los errores de una sola pasada
+
+    this.actualizarVuelos();
   }
+  //Mostrar errores
   else{
     $("#errors").show();
     $("#errors").text = error;
@@ -157,18 +165,37 @@ ReservaVuelos.prototype.hideShowForm = function(){
     }
     
 }
-/*
+//Función que recoge los datos de la pagina "webresources/vuelos/"
+//y crea una lista con los objetos que le pase la página
+ReservaVuelos.prototype.actualizarVuelos = function() {
+    $.ajax({
+        "url": "webresources/vuelos/",
+        "type": "get",
+        "dataType": "json",
+        "success": function(vuelos) {
+            //console.log(vuelos);
+            if (vuelos.length) {
 
-**************TO***DO*****************
+            } else {
+                $.each(vuelos, function(i, vuelo) {
+                    var li = $('<li/>')
+                        .addClass('ui-menu-item')
+                        .attr('role', 'menuitem')
+                        .appendTo(resultados);
+                    var a = $('<a/>')
+                        .addClass('ui-all')
+                        .text(vuelo.nVuelo + ' ' +
+                            vuelo.horaSalida + ' ' +
+                            vuelo.horaLlegada + ' ' +
+                            vuelo.aeropuertoSalida + ' ' +
+                            vuelo.aeropuertoOrigen + ' ' +
+                            vuelo.precio + ' ' +
+                            vuelo.capacidad + ' ' +
+                            vuelo.ordenAsiento)
+                        .appendTo(li);
+                });
+            }
+        }
+    });
+}
 
--Mejorar la experiencia del usuario en las validaciones
-
--Implementar las validaciones para el formulario de
-entrada de datos del cliente (nombre, telefono, tarjeta de crédito, etc...)
-
--Revisar los fallos de las validaciones en cuanto a fechas
-(si fecha inicial es mayor que la final)
-
--Webstorage para guardar el idioma y no tener uno por defecto,
-o coger el idioma por defecto desde el navegador (no se reconoce el valenciano)
-*/

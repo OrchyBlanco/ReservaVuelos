@@ -126,20 +126,28 @@
 
                     <p:dataTable id="tablaVuelos" var="vuelo" value="#{vueloCtr.vuelos}">
                         <f:facet name="header">
+                            
                         </f:facet>
+                        <p:column headerText="#{msg['datos.nVuelo']}">
                             <h:outputText value="#{vuelo.getnVuelo()}" />
                         </p:column>
+                        <p:column headerText="#{msg['datos.hSalida']}">
                             <h:outputText value="#{vuelo.horaSalida}" />
                         </p:column>
+                        <p:column headerText="#{msg['datos.hLlegada']}">
                             <h:outputText value="#{vuelo.horaLlegada}" />
                         </p:column>
 
+                        <p:column headerText="#{msg['datos.precioMax']}">
                             <h:outputText value="#{vuelo.origen}" />
                         </p:column>
+                        <p:column headerText="#{msg['datos.nVuelo']}">
                             <h:outputText value="#{vuelo.destino}" />
                         </p:column>
+                        <p:column headerText="#{msg['datos.nVuelo']}">
                             <h:outputText value="#{vuelo.aerolinea}" />
                         </p:column>
+                        <p:column headerText="#{msg['datos.precio']}">
                             <h:outputText value="#{vuelo.precio}" />
                         </p:column>
                         <p:column style="width:32px;text-align: center">
