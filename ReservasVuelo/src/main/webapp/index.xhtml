@@ -120,49 +120,98 @@
                 </a>
             </div>
             <!--Fin Buscar Vuelos-->
-            <div id="tablaVuelos" class="col-md-6">
-                <h:form id="form">
-                    <p:growl id="msgs" showDetail="true" />
-
-                    <p:dataTable id="tablaVuelos" var="vuelo" value="#{vueloCtr.vuelos}">
-                        <f:facet name="header">
-                            
-                        </f:facet>
-                        <p:column headerText="#{msg['datos.nVuelo']}">
-                            <h:outputText value="#{vuelo.getnVuelo()}" />
-                        </p:column>
-                        <p:column headerText="#{msg['datos.hSalida']}">
-                            <h:outputText value="#{vuelo.horaSalida}" />
-                        </p:column>
-                        <p:column headerText="#{msg['datos.hLlegada']}">
-                            <h:outputText value="#{vuelo.horaLlegada}" />
-                        </p:column>
-
-                        <p:column headerText="#{msg['datos.precioMax']}">
-                            <h:outputText value="#{vuelo.origen}" />
-                        </p:column>
-                        <p:column headerText="#{msg['datos.nVuelo']}">
-                            <h:outputText value="#{vuelo.destino}" />
-                        </p:column>
-                        <p:column headerText="#{msg['datos.nVuelo']}">
-                            <h:outputText value="#{vuelo.aerolinea}" />
-                        </p:column>
-                        <p:column headerText="#{msg['datos.precio']}">
-                            <h:outputText value="#{vuelo.precio}" />
-                        </p:column>
-                        <p:column style="width:32px;text-align: center">
-                            <p:commandButton  oncomplete="PF('vueloDialog').show()" icon="ui-icon-search" title="View">
-                                <f:setPropertyActionListener value="#{vuelo}" target="#{vueloCtr.selectedVuelo}" />
-                            </p:commandButton>
-                        </p:column>
-
-                    </p:dataTable>
-                </h:form>
+            <!--Tabla de vuelos-->
+            <div id="tablaVuelos" class="col-md-7">
+                <div class="table-responsive">          
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#{msg['datos.nVuelo']}</th>
+                                <th>#{msg['datos.hSalida']}</th>
+                                <th>#{msg['datos.hLlegada']}</th>
+                                <th>#{msg['datos.origen']}</th>
+                                <th>#{msg['datos.destino']}</th>
+                                <th>#{msg['datos.aerolineatable']}</th>
+                                <th>#{msg['datos.precio']}</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>15:00</td>
+                                <td>17:00</td>
+                                <td>Madrid</td>
+                                <td>New York</td>
+                                <td>Atlantic Air Lines</td>
+                                <td>750</td>
+                                <td><button type="button" class="seleccionVuelo btn btn-success btn-sm"><span class="glyphicon glyphicon-time "></span></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <!--SVG || Reserva asiento-->
+            <!--DIALOG vuelo Especifico-->
+            <div id="vueloEspecifico" class="col-md-7" title="Elegir Fecha">
+
+                <div id="vueloInfo">
+                    <p>#{msg['datos.nVuelo']}:</p>
+                    <p>#{msg['datos.hSalida']}:</p>
+                    <p>#{msg['datos.precio']}:</p>
+                </div>
+                <div class="table-responsive">          
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#{msg['datos.nVuelo']}</th>
+                                <th>#{msg['datos.hSalida']}</th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2/10/2017</td>
+                                <td>20</td>
+
+                                <td><button type="button" class="selecionvuelo btn btn-success btn-sm"><span class="glyphicon glyphicon-plane "></span></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--Reserva asiento-->
+
+            <div id="reservas" class="col-md-7" title="Reservar Vuelo">
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" id="nombre"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" id="apellido"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
+                        <input type="text" class="form-control" id="telefono"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="tarjeta">Tarjeta</label>
+                        <input type="tarjeta" class="form-control" id="tarjeta"/>
+                    </div>
 
 
+                    <button type="submit" class="btn btn-default">Reservar</button>
+                </form>
+            </div>
         </div>
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted">Place sticky footer content here.</p>
+            </div>
+        </footer>
+
         <!--JS -->
         <script src="JS/ReservaVuelos.js"></script>
         <script src="JS/reservar.js"></script>

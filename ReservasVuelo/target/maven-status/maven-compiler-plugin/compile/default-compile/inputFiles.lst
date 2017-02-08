@@ -2,10 +2,17 @@ F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\data\ConnectionProvider.java
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\data\VueloDao.java
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\model\Vuelo.java
+F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\data\hibernate\HibernateUtil.java
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\model\VueloGenerico.java
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\idiomas\LanguageBean.java
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\data\VueloGenerico.java
+F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\model\Aeropuerto.java
+F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\model\Ciudad.java
+F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\model\Reservas.java
+F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\org\netbeans\rest\application\config\ApplicationConfig.java
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\data\VueloGenericoDao.java
+F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\services\rest\VueloGenericoResource.java
+F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\model\Aerolinea.java
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\data\MySqlDaoFactory.java
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\webBean\MySqlVueloGenericolDao.java
 F:\2ºDAW\Repositorios\ReservaVuelos\ReservasVuelo\src\main\java\es\reservasvuelo\data\Vuelo.java
