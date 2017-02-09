@@ -5,6 +5,11 @@
  */
 package es.reservasvuelo.services.rest;
 
+import es.reservasvuelo.data.hibernate.HibernateUtil;
+import es.reservasvuelo.model.VueloGenerico;
+import es.reservasvuelo.model.rest.VueloGenericoRst;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -12,42 +17,52 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import org.hibernate.Session;
+import org.hibernate.criterion.Order;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * REST Web Service
  *
  * @author PC-Jesus
  */
-@Path("VueloGenerico")
+@Path("vuelogenerico")
 public class VueloGenericoResource {
 
-    @Context
-    private UriInfo context;
+    private final Logger logger = LoggerFactory.getLogger(VueloGenericoResource.class);
 
-    /**
-     * Creates a new instance of VueloGenericoResource
-     */
-    public VueloGenericoResource() {
-    }
-
-    /**
-     * Retrieves representation of an instance of es.reservasvuelo.services.rest.VueloGenericoResource
-     * @return an instance of java.lang.String
-     */
+    /*TODOS LOS VUELOS*/
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getJson() {
-        //TODO return proper representation object
-        throw new UnsupportedOperationException();
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<VueloGenericoRst> findAll() {
+      
+        try (Session session = HibernateUtil.openSession()) {
+            List<VueloGenerico> vuelos = session.createCriteria(VueloGenerico.class)
+                    .addOrder(Order.desc("nvuelo"))
+                    .list();
+            return vuelos.stream().map(v -> new VueloGenericoRst(v)).collect(Collectors.toList());
+        } catch (Exception ex) {
+            logger.error("getVueloGenerico", ex);
+            return null;
+        }      
     }
-
-    /**
-     * PUT method for updating or creating an instance of VueloGenericoResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
+    
+    /*Vuelo por ID*/
+    @GET
+    @Path("{nVuelo}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public VueloGenericoRst find(@PathParam("nvuelo") Integer nVuelo){
+        try(Session session =HibernateUtil.openSession()){
+            VueloGenerico vuelo = session.get(VueloGenerico.class, nVuelo);
+            return new VueloGenericoRst(vuelo);
+        }catch(Exception ex){
+            logger.error("getVueloGenerico",ex);
+            return null;
+        }
     }
 }
+
+
