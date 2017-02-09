@@ -11,14 +11,14 @@ import java.util.List;
  *
  * @author 2dawb
  */
-public interface VueloDao {
+public interface AerolineasDao {
     
     
-    public Vuelo select(Integer vuelo_id);
-    public List<Vuelo> selectAll();
-    public Integer insert(Vuelo vuelo);
-    public boolean update(Vuelo vuelo);
-    public boolean delete(Vuelo vuelo);
+    public Aerolineas select(Integer aerolineaId);
+    public List<Aerolineas> selectAll();
+    public Integer insert(Aerolineas aerolinea);
+    public boolean update(Aerolineas aerolinea);
+    public boolean delete(Aerolineas aerolinea);
     public void setPageSize(Integer pgSize);
     public Integer getPageSize();
     
