@@ -29,8 +29,8 @@ drop table if exists vueloGenerico;
 create table if not exists vueloGenerico
 (
 nVuelo int not null auto_increment,
-horaSalida int,
-horaLlegada int,
+horaSalida varchar(10) not null,,
+horaLlegada varchar(10) not null,,
 precio double not null,
 capacidad int not null,
 aeropuerto_id int not null,
@@ -88,8 +88,8 @@ insert into ciudad values(1, "ciudad1", "España")
 insert into ciudad values(2, "ciudad2", "America")
 insert into aeropuerto values(1,"codigo1", "aeropuerto1", 1, 1)
 insert into aeropuerto values(2,"codigo2", "aeropuerto2", 2, 2)
-insert into vueloGenerico (nVUelo, horaSalida, horaLlegada, aeropuerto_origen, aeropuerto_destino, precio, capacidad , aeropuerto_id, aerolinea_id) values (1, 10, 11, "Tenerife Norte", "Lanzarote", 100, 50, 1, 1)
-insert into vueloGenerico (nVUelo, horaSalida, horaLlegada, aeropuerto_origen, aeropuerto_destino, precio, capacidad, aeropuerto_id, aerolinea_id) values (2, 10, 11, "Tenerife Sur", "La Palma", 100, 50, 2, 2)
+insert into vueloGenerico (nVUelo, horaSalida, horaLlegada, aeropuerto_origen, aeropuerto_destino, precio, capacidad , aeropuerto_id, aerolinea_id) values (1, "10:00", "11:00", "Tenerife Norte", "Lanzarote", 100, 50, 1, 1)
+insert into vueloGenerico (nVUelo, horaSalida, horaLlegada, aeropuerto_origen, aeropuerto_destino, precio, capacidad, aeropuerto_id, aerolinea_id) values (2, "10:00", "11:00", "Tenerife Sur", "La Palma", 100, 50, 2, 2)
 insert into vuelo values(1, 50, "2014-01-30 12:00:00", 1)
 insert into vuelo values(2, 50, "2017-02-06 11:00:00", 2)
 insert into reservas (vuelo_id, nombre, apellidos, telefono, tarjeta, importe) values (1, "juan", "juanillo juanillo", 123456987, 1234567898741256, 20)
