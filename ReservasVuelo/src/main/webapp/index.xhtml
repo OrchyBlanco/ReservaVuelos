@@ -101,12 +101,11 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <p:outputLabel class="control-label col-md-3" for="selectAerolineas" value="#{msg['datos.aerolineas']} " />
-                        <div class="col-md-9">
-
-                            <p:selectOneMenu id="selectAerolineas" effect="fold" editable="true">
-                                <f:selectItem itemLabel="Select One" itemValue="Select One" />
-                            </p:selectOneMenu>
+                         <label class="control-label col-md-3" for="selectAerolineas">#{msg['datos.aerolineas']}</label>
+                        <div class="col-md-9">                           
+                           <select id="selectAerolineas">
+                            <option value="">---</option>
+                        </select>
                         </div>
                     </div>
                     <button type="button" class="btn btn-success offset-md-2">#{msg['header.buscar']}<span class="glyphicon glyphicon-search "></span></button>
