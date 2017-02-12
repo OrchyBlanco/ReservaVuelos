@@ -85,13 +85,13 @@
                     <div class="form-group">
                         <label class="control-label col-md-3" for="horaSalida">#{msg['datos.hSalida']}</label>
                         <div class="col-md-9">
-                            <input type="number" maxlength="5" required="true" class="form-control" id="horaSalida" placeholder="14:00"/>
+                            <input type="text" maxlength="5" required="true" class="form-control" id="horaSalida" placeholder="14:00"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-3" for="horaLlegada">#{msg['datos.hLlegada']}</label>
                         <div class="col-md-9">
-                            <input type="number" maxlength="5" required="true" class="form-control" id="horaLlegada" placeholder="14:00"/>
+                            <input type="text" maxlength="5" required="true" class="form-control" id="horaLlegada" placeholder="14:00"/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -104,11 +104,10 @@
                          <label class="control-label col-md-3" for="selectAerolineas">#{msg['datos.aerolineas']}</label>
                         <div class="col-md-9">                           
                            <select id="selectAerolineas">
-                            <option value="">---</option>
-                        </select>
+                            </select>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-success offset-md-2">#{msg['header.buscar']}<span class="glyphicon glyphicon-search "></span></button>
+                    <button id="botonSubmit" type="button" class="btn btn-success offset-md-2">#{msg['header.buscar']}<span class="glyphicon glyphicon-search "></span></button>
                 </h:form>
 
             </div>
@@ -181,7 +180,7 @@
             <!--Reserva asiento-->
 
             <div id="reservas" class="col-md-7" title="Reservar Vuelo">
-                <form>
+                <form id="formReserva">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" id="nombre"/>
@@ -199,8 +198,7 @@
                         <input type="tarjeta" class="form-control" id="tarjeta"/>
                     </div>
 
-
-                    <button type="submit" class="btn btn-default">Reservar</button>
+                    <button id="submitReserva" type="button" class="btn btn-default">Reservar</button>
                 </form>
             </div>
         </div>
