@@ -1,0 +1,7 @@
+2datos.sql
+*.sql
+PliegoReservasVuelo.pdf
+*.zip
+ReservasVuelo/target/ReservasVuelo-1.0-SNAPSHOT/gfv3ee6.dpf
+*.sql
+ReservasVuelo/target/classes/es/reservasvuelo/services/rest/ApplicationConfig.class

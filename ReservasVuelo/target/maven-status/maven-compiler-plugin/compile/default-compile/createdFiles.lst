@@ -1,12 +1,1 @@
-es\reservasvuelo\model\Aerolinea.class
-es\reservasvuelo\model\Aeropuerto.class
-es\reservasvuelo\webBean\AerolineaBean.class
-es\reservasvuelo\data\hibernate\HibernateUtil.class
 es\reservasvuelo\idiomas\LanguageBean.class
-es\reservasvuelo\model\rest\AerolineaRes.class
-es\reservasvuelo\model\Ciudad.class
-es\reservasvuelo\model\Vuelo.class
-es\reservasvuelo\model\Reservas.class
-es\reservasvuelo\services\rest\ApplicationConfig.class
-es\reservasvuelo\model\VueloGenerico.class
-es\reservasvuelo\services\rest\AerolineaResource.class
