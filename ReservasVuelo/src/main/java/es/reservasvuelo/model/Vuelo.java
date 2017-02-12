@@ -1,5 +1,5 @@
 package es.reservasvuelo.model;
-// Generated 08-feb-2017 11:43:20 by Hibernate Tools 4.3.1
+// Generated 12-feb-2017 0:43:03 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -25,7 +25,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name="vuelo"
     ,catalog="ReservaVuelos"
-    , uniqueConstraints = {@UniqueConstraint(columnNames="fecha"), @UniqueConstraint(columnNames={"fecha", "nVuelo"}), @UniqueConstraint(columnNames="nVuelo")} 
+    , uniqueConstraints = {@UniqueConstraint(columnNames="fecha"), @UniqueConstraint(columnNames="nVuelo"), @UniqueConstraint(columnNames={"fecha", "nVuelo"})} 
 )
 public class Vuelo  implements java.io.Serializable {
 
@@ -34,7 +34,7 @@ public class Vuelo  implements java.io.Serializable {
      private VueloGenerico vueloGenerico;
      private int plazasLibres;
      private Date fecha;
-     private Set reservases = new HashSet(0);
+     private Set<Reservas> reservases = new HashSet<Reservas>(0);
 
     public Vuelo() {
     }
@@ -45,7 +45,7 @@ public class Vuelo  implements java.io.Serializable {
         this.plazasLibres = plazasLibres;
         this.fecha = fecha;
     }
-    public Vuelo(VueloGenerico vueloGenerico, int plazasLibres, Date fecha, Set reservases) {
+    public Vuelo(VueloGenerico vueloGenerico, int plazasLibres, Date fecha, Set<Reservas> reservases) {
        this.vueloGenerico = vueloGenerico;
        this.plazasLibres = plazasLibres;
        this.fecha = fecha;
@@ -95,11 +95,11 @@ public class Vuelo  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="vuelo")
-    public Set getReservases() {
+    public Set<Reservas> getReservases() {
         return this.reservases;
     }
     
-    public void setReservases(Set reservases) {
+    public void setReservases(Set<Reservas> reservases) {
         this.reservases = reservases;
     }
 

@@ -1,5 +1,5 @@
 package es.reservasvuelo.model;
-// Generated 08-feb-2017 11:43:20 by Hibernate Tools 4.3.1
+// Generated 12-feb-2017 0:43:03 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,7 +26,7 @@ public class Ciudad  implements java.io.Serializable {
      private Integer idCiudad;
      private String nombre;
      private String pais;
-     private Set aeropuertos = new HashSet(0);
+     private Set<Aeropuerto> aeropuertos = new HashSet<Aeropuerto>(0);
 
     public Ciudad() {
     }
@@ -36,7 +36,7 @@ public class Ciudad  implements java.io.Serializable {
         this.nombre = nombre;
         this.pais = pais;
     }
-    public Ciudad(String nombre, String pais, Set aeropuertos) {
+    public Ciudad(String nombre, String pais, Set<Aeropuerto> aeropuertos) {
        this.nombre = nombre;
        this.pais = pais;
        this.aeropuertos = aeropuertos;
@@ -75,11 +75,11 @@ public class Ciudad  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="ciudad")
-    public Set getAeropuertos() {
+    public Set<Aeropuerto> getAeropuertos() {
         return this.aeropuertos;
     }
     
-    public void setAeropuertos(Set aeropuertos) {
+    public void setAeropuertos(Set<Aeropuerto> aeropuertos) {
         this.aeropuertos = aeropuertos;
     }
 

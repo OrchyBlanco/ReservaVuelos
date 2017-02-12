@@ -1,5 +1,5 @@
 package es.reservasvuelo.model;
-// Generated 08-feb-2017 11:43:20 by Hibernate Tools 4.3.1
+// Generated 12-feb-2017 0:43:03 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -32,7 +32,7 @@ public class Aeropuerto  implements java.io.Serializable {
      private String codigo;
      private String nombre;
      private int categoria;
-     private Set vueloGenericos = new HashSet(0);
+     private Set<VueloGenerico> vueloGenericos = new HashSet<VueloGenerico>(0);
 
     public Aeropuerto() {
     }
@@ -44,7 +44,7 @@ public class Aeropuerto  implements java.io.Serializable {
         this.nombre = nombre;
         this.categoria = categoria;
     }
-    public Aeropuerto(Ciudad ciudad, String codigo, String nombre, int categoria, Set vueloGenericos) {
+    public Aeropuerto(Ciudad ciudad, String codigo, String nombre, int categoria, Set<VueloGenerico> vueloGenericos) {
        this.ciudad = ciudad;
        this.codigo = codigo;
        this.nombre = nombre;
@@ -105,11 +105,11 @@ public class Aeropuerto  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="aeropuerto")
-    public Set getVueloGenericos() {
+    public Set<VueloGenerico> getVueloGenericos() {
         return this.vueloGenericos;
     }
     
-    public void setVueloGenericos(Set vueloGenericos) {
+    public void setVueloGenericos(Set<VueloGenerico> vueloGenericos) {
         this.vueloGenericos = vueloGenericos;
     }
 

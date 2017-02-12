@@ -1,5 +1,5 @@
 package es.reservasvuelo.model;
-// Generated 08-feb-2017 11:43:20 by Hibernate Tools 4.3.1
+// Generated 12-feb-2017 0:43:03 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -28,11 +28,11 @@ public class VueloGenerico  implements java.io.Serializable {
      private Integer nvuelo;
      private Aerolinea aerolinea;
      private Aeropuerto aeropuerto;
-     private Integer horaSalida;
-     private Integer horaLlegada;
+     private String horaSalida;
+     private String horaLlegada;
      private double precio;
      private int capacidad;
-     private Set vuelos = new HashSet(0);
+     private Set<Vuelo> vuelos = new HashSet<Vuelo>(0);
 
     public VueloGenerico() {
     }
@@ -43,7 +43,7 @@ public class VueloGenerico  implements java.io.Serializable {
         this.precio = precio;
         this.capacidad = capacidad;
     }
-    public VueloGenerico(Aerolinea aerolinea, Aeropuerto aeropuerto, Integer horaSalida, Integer horaLlegada, double precio, int capacidad, Set vuelos) {
+    public VueloGenerico(Aerolinea aerolinea, Aeropuerto aeropuerto, String horaSalida, String horaLlegada, double precio, int capacidad, Set<Vuelo> vuelos) {
        this.aerolinea = aerolinea;
        this.aeropuerto = aeropuerto;
        this.horaSalida = horaSalida;
@@ -86,22 +86,22 @@ public class VueloGenerico  implements java.io.Serializable {
     }
 
     
-    @Column(name="horaSalida")
-    public Integer getHoraSalida() {
+    @Column(name="horaSalida", length=10)
+    public String getHoraSalida() {
         return this.horaSalida;
     }
     
-    public void setHoraSalida(Integer horaSalida) {
+    public void setHoraSalida(String horaSalida) {
         this.horaSalida = horaSalida;
     }
 
     
-    @Column(name="horaLlegada")
-    public Integer getHoraLlegada() {
+    @Column(name="horaLlegada", length=10)
+    public String getHoraLlegada() {
         return this.horaLlegada;
     }
     
-    public void setHoraLlegada(Integer horaLlegada) {
+    public void setHoraLlegada(String horaLlegada) {
         this.horaLlegada = horaLlegada;
     }
 
@@ -126,11 +126,11 @@ public class VueloGenerico  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="vueloGenerico")
-    public Set getVuelos() {
+    public Set<Vuelo> getVuelos() {
         return this.vuelos;
     }
     
-    public void setVuelos(Set vuelos) {
+    public void setVuelos(Set<Vuelo> vuelos) {
         this.vuelos = vuelos;
     }
 
