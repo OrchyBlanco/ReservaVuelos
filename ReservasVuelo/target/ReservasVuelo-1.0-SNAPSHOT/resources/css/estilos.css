@@ -58,6 +58,9 @@ and open the template in the editor.
     border-radius: 0px 0px 20px 0px;
     color: white;
 }
+#reservas{
+    display:none;
+}
 
 footer{
     background-color: #eeeeee;
