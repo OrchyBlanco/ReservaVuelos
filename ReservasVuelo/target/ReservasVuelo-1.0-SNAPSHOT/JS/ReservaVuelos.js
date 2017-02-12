@@ -1,21 +1,21 @@
 /*
-Author: Adrián Morales Martín
-25/01/2017
+ Author: Adrián Morales Martín
+ 11/02/2017
+ 
+ ReservaVuelos V.2
+ */
 
-ReservaVuelos V.2
-*/
-
-var ReservaVuelos = function() {
+var ReservaVuelos = function () {
     that = this;
     this.idioma = "es";
 }
 /*
-Funcion que carga el objeto según el idioma que el usuario haya escogido
-y se lo pasa a la función fecha (1=Español , 2=Ingles , 3=Valenciano)
-*/
-ReservaVuelos.prototype.crearFechas = function(ev) {
+ Funcion que carga el objeto según el idioma que el usuario haya escogido
+ y se lo pasa a la función fecha (1=Español , 2=Ingles , 3=Valenciano)
+ */
+ReservaVuelos.prototype.crearFechas = function (ev) {
     if (ev.target.tagName == "a") {
-        $.getJSON("JS/Datos.json", function(datos) {
+        $.getJSON("JS/Datos.json", function (datos) {
             if (ev.target.id == "1") {
                 that.fechas(datos.DatosReservaVuelos.fechaEspanol);
                 this.idioma = "es";
@@ -32,11 +32,11 @@ ReservaVuelos.prototype.crearFechas = function(ev) {
     }
 }
 /*
-Funcion que devuelve true tanto si esta vacío como si lo que esté dentro del campo sea numérico
-*/
-ReservaVuelos.prototype.validarCosteMaximo = function(campo) {
+ Funcion que devuelve true tanto si esta vacío como si lo que esté dentro del campo sea numérico
+ */
+ReservaVuelos.prototype.validarCosteMaximo = function (campo) {
     if (campo.val() != undefined) {
-        if (campo.val().test(/\d/)) {
+        if (/\d/.test(campo.val())) {
             return true;
         } else {
             return false;
@@ -46,11 +46,11 @@ ReservaVuelos.prototype.validarCosteMaximo = function(campo) {
     }
 }
 /*
-Funcion que devuelve true tanto si esta vacío como si lo que esté dentro del campo sea numérico
-*/
-ReservaVuelos.prototype.validarHoraLlegada = function(campo) {
+ Funcion que devuelve true tanto si esta vacío como si lo que esté dentro del campo sea numérico
+ */
+ReservaVuelos.prototype.validarHoraLlegada = function (campo) {
     if (campo.val() != undefined || campo.val() == "") {
-        if (campo.val().test(/\d/)) {
+        if (/\d/.test(campo.val())) {
             return true;
         } else {
             return false;
@@ -60,16 +60,12 @@ ReservaVuelos.prototype.validarHoraLlegada = function(campo) {
     }
 }
 /*
-Funcion que devuelve true tanto si esta vacío como si lo que esté dentro del campo sea numérico
-*/
-ReservaVuelos.prototype.validarHoraSalida = function(campo, campo2) {
+ Funcion que devuelve true tanto si esta vacío como si lo que esté dentro del campo sea numérico
+ */
+ReservaVuelos.prototype.validarHoraSalida = function (campo, campo2) {
     if (campo.val() != undefined) {
-        if (campo.val().test(/\d/) && campo2.val().test(/\d/)) {
-            if (campo2.val() < campo.val()) {
-                return true;
-            } else {
-                return false;
-            }
+        if (/\d/.test(campo.val()) && /\d/.test(campo2.val())) {
+            return true;
         } else {
             return false;
         }
@@ -78,10 +74,10 @@ ReservaVuelos.prototype.validarHoraSalida = function(campo, campo2) {
     }
 }
 /*
-Funcion que devuelve true tanto si esta vacío como si lo que esté dentro del campo tenga
-un formato adecuado según el idioma que seleccione
-*/
-ReservaVuelos.prototype.validarFecha = function(campo) {
+ Funcion que devuelve true tanto si esta vacío como si lo que esté dentro del campo tenga
+ un formato adecuado según el idioma que seleccione
+ */
+ReservaVuelos.prototype.validarFecha = function (campo) {
     var valor = campo.value;
     if (campo.val() != undefined) {
         valor = campo.val()
@@ -89,21 +85,21 @@ ReservaVuelos.prototype.validarFecha = function(campo) {
     if (this.idioma == "en") {
         //Si el idioma es inglés, el formato será yyyy/mm/dd;
         var exp = /^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/
-        if (valor.test(exp)) {
+        if (exp.test(valor)) {
             return true;
         }
         return false;
     } else {
         //Si el idioma no es inglés, el formato será dd/mm/yyyy;
         var exp = /^(\d+)(-|\/)(\d+)(?:-|\/)(?:(\d+)\s+(\d+):(\d+)(?::(\d+))?(?:\.(\d+))?)?/
-        if (valor.test(exp)) {
+        if (exp.test(valor)) {
             return true;
         }
         return false;
     }
 }
 //Crea los DatePickers
-ReservaVuelos.prototype.fechas = function(options) {
+ReservaVuelos.prototype.fechas = function (options) {
     var fechaFin = $("#campoFechaFin").find("input");
     var fechaIni = $("#campoFechaIni").find("input");
     //Elimina los datepickers de los campos fecha para volver a crearlos con el nuevo objeto options
@@ -112,10 +108,10 @@ ReservaVuelos.prototype.fechas = function(options) {
     fechaIni.datepicker(options);
     fechaFin.datepicker(options);
 }
-
-ReservaVuelos.prototype.enviarDatos = function() {
+//Al revisar que todos los datos sean validados, se prosigue a mostrar los vuelos
+ReservaVuelos.prototype.enviarDatos = function () {
     var error = "";
-    var costeMax = $("#costeMax");
+    var costeMax = $("#precioMaximo");
     var horaLlegada = $("#horaLlegada");
     var horaSalida = $("#horaSalida");
     var campoFechaIni = $("#campoFechaIni");
@@ -127,30 +123,29 @@ ReservaVuelos.prototype.enviarDatos = function() {
         error += "Hay un error en el campo hora llegada<br>";
     }
     if (this.validarHoraSalida(horaSalida, horaLlegada) == false) {
-        error += "Hay un error en el campo hora salida<br>"; //<---------FALLA
+        error += "Hay un error en el campo hora salida<br>"; 
     }
-    if (this.validarFecha(campoFechaIni) == false) {
+/*    if (this.validarFecha(campoFechaIni) == false) {
         error += "Hay un error en el campo fecha inicio<br>";
     }
     if (this.validarFecha(campoFechaFin) == false) {
         error += "Hay un error en el campo fecha fin<br>";
-    }
+    }*/
     //No mostrar errores
     if (error == "") {
-        $("#errors").hide();
-        $("#errors").text = error;
-
-        this.actualizarVuelos();
+        toastr.success("La busqueda ha sido resuelta")
+        //Actualiza la vista de vuelos o la crea
+        this.vuelosMock();
+        this.dialogReserva($("#reservas").find("form"));
     }
     //Mostrar errores
     else {
-        $("#errors").show();
-        $("#errors").text = error;
+        toastr.error(error)
     }
 
 }
 //Función que oculta el formulario n1 con una animación
-ReservaVuelos.prototype.hideShowForm = function() {
+ReservaVuelos.prototype.hideShowForm = function () {
     //j_idt15 es el id del formulario 1
     //buscarVuelo div que contiene el formulario (JESUS)
     if ($("#buscarVuelo").css("display") == "none") {
@@ -164,59 +159,89 @@ ReservaVuelos.prototype.hideShowForm = function() {
     }
 
 }
-//Función que recoge los datos de la pagina "webresources/vuelos/"
-//y crea una lista con los objetos que le pase la página
-ReservaVuelos.prototype.actualizarVuelos = function() {
+//Función que recoge los datos de la pagina "rest"
+//y crea una lista con los objetos con el json que le de la página
+ReservaVuelos.prototype.actualizarVuelos = function () {
+    var that = this;
     $.ajax({
         "url": "rest",
         "type": "get",
         "dataType": "json",
-        "success": function(vuelos) {
-            //console.log(vuelos);
-            if (vuelos.length==0) {
-
-            } else {
-                $.each(vuelos, function(i, vuelo) {
-                    var li = $('<li/>')
-                        .addClass('ui-menu-item')
-                        .attr('role', 'menuitem')
-                        .appendTo(resultados);
-                    var a = $('<a/>')
-                        .addClass('ui-all')
-                        .text(vuelo.nVuelo + ' ' +
-                            vuelo.horaSalida + ' ' +
-                            vuelo.horaLlegada + ' ' +
-                            vuelo.aeropuertoSalida + ' ' +
-                            vuelo.aeropuertoOrigen + ' ' +
-                            vuelo.precio + ' ' +
-                            vuelo.capacidad + ' ' +
-                            vuelo.ordenAsiento)
-                        .appendTo(li);
-                });
-            }
+        "success": function (vuelos) {
+            console.log(vuelos);
+            that.pintarVuelos(vuelos);
         }
     });
 }
-
-ReservaVuelos.prototype.comboAerolineas = function() {
-    var select = $("#selectAerolineas");
+//Mock de vuelos
+ReservaVuelos.prototype.vuelosMock = function(){
+    var vuelos = [{origen:"Madrid", destino:"París", fecha:22/03/2017,nVuelo:3,aerolinea:"Aerolinea1",  precio:520},{plazasLibres:23, origen:"Albacete", destino:"Lleida", fecha:26/02/2017,nVuelo:1,aerolinea:"Aerolinea1", precio:875},{plazasLibres:120, fecha:12/04/2017, origen:"Córdoba", destino:"Menorca", nVuelo:7, aerolinea:"Aerolinea1", precio:775}]
+    this.pintarVuelos(vuelos);
+}
+//Mock del combo de aerolineas
+ReservaVuelos.prototype.comboAerolineasMock = function () {
+    var aerolineas = [{aerlonineaId: 1, codigo: "AMR", nombre: "Aerolinea1"}, {aerlonineaId: 2, codigo: "DMR", nombre: "Aerolinea2"}, {aerlonineaId: 3, codigo: "GPT", nombre: "Aerolinea3"}];
+    this.pintarSelect(aerolineas);
+}
+//Mock, No funciona, me devuelve el php entero en error.responseText
+ReservaVuelos.prototype.comboAerolineasMockPhp = function () {
+    var that = this;
     $.ajax({
-        "url": "rest/vuelosgenericos",
-        "type": "get",
-        "dataType": "json",
-        success: function(aerolineas) {
-          if(aerolineas.length==0){
-
-          }
-          else{
-            $.each(aerolineas, function(i, aerolineas) {
-              var item = $('<f:selectItem itemValue='+aerolineas+'/>')
-                  .appendTo(select);
-            })
-          }
+        url: "JS/datosJSON.php",
+        dataType: "json",
+        type: "GET",
+        success: function (aerolineas) {
+            that.pintarSelect(aerolineas);
         },
-        error:function(error){
-          error.responseText;
+        error: function (error) {
+            error.responseText;
         }
     });
 }
+
+//Pinta el combo con el objeto que le pasen
+ReservaVuelos.prototype.pintarSelect = function (aerolineas) {
+    var select = $("#selectAerolineas");
+    select.empty();
+
+    if (aerolineas.length === 0) {
+        console.log("petición al servidor no devuelve nada")
+    } else {
+        $.each(aerolineas, function (i) {
+            select.append('<option value=' + aerolineas[i].aerolineaId + '>' + aerolineas[i].nombre + '</option>')
+        })
+    }
+}
+//Pintar una lista vuelos con el objeto que le pasen
+
+/*************ARREGLANDO***************/
+/*ReservaVuelos.prototype.pintarVuelos = function (vuelos) {
+    var that = this;
+    var resultados = $("#resultados");
+    if (vuelos.length == 0) {
+        console.log("No se ha recibido nada");
+    } else {
+        $.each(vuelos, function (vuelo) {
+            var tr = $('<tr></tr>')
+                    .click(function(){
+                        that.dialogReserva($("#reservas").find("form"));
+            }).appendTo($("#tablaVuelos"));
+                var td = $('<td></td>')
+                    .text(vuelo[j])
+                    .appendTo(tr);
+            })
+        });
+    }
+}*/
+//Crea un dialogo con el form que le pases
+ReservaVuelos.prototype.dialogReserva = function (form) {
+    form.dialog({
+        modal:true,
+        resizable: false,
+        show: { effect: "blind", duration: 800 },
+        title: "Reservar Vuelo",
+        width: 500,
+        height:300
+        
+    })
+};

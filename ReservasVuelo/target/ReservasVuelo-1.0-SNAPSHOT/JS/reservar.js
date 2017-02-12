@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", function() {
         "hideMethod": "fadeOut"
     }
     reservar = new ReservaVuelos();
-    reservar.comboAerolineas();
+    reservar.comboAerolineasMock();
     $.getJSON("JS/Datos.json", function(datos) {
       reservar.fechas(datos.DatosReservaVuelos.fechaEspanol);
     })
