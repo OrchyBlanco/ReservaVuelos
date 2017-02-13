@@ -123,20 +123,19 @@ ReservaVuelos.prototype.enviarDatos = function () {
         error += "Hay un error en el campo hora llegada<br>";
     }
     if (this.validarHoraSalida(horaSalida, horaLlegada) == false) {
-        error += "Hay un error en el campo hora salida<br>"; 
+        error += "Hay un error en el campo hora salida<br>";
     }
-/*    if (this.validarFecha(campoFechaIni) == false) {
-        error += "Hay un error en el campo fecha inicio<br>";
-    }
-    if (this.validarFecha(campoFechaFin) == false) {
-        error += "Hay un error en el campo fecha fin<br>";
-    }*/
+    /*    if (this.validarFecha(campoFechaIni) == false) {
+     error += "Hay un error en el campo fecha inicio<br>";
+     }
+     if (this.validarFecha(campoFechaFin) == false) {
+     error += "Hay un error en el campo fecha fin<br>";
+     }*/
     //No mostrar errores
     if (error == "") {
         toastr.success("La busqueda ha sido resuelta")
         //Actualiza la vista de vuelos o la crea
-        this.vuelosMock();
-        this.dialogReserva($("#reservas").find("form"));
+        this.actualizarVuelosGenericos();
     }
     //Mostrar errores
     else {
@@ -161,21 +160,32 @@ ReservaVuelos.prototype.hideShowForm = function () {
 }
 //Función que recoge los datos de la pagina "rest"
 //y crea una lista con los objetos con el json que le de la página
-ReservaVuelos.prototype.actualizarVuelos = function () {
+ReservaVuelos.prototype.actualizarVuelosGenericos = function () {
+    var objParametro= {
+        horaSalida:$("#horaSalida").val(),
+        horaLlegada:$("#horaLlegada").val(),
+        aerolineaId:$("#selectAerolineas").val(),
+        precio:$("#precioMaximo").val(),
+    }
+    console.log(objParametro);
     var that = this;
     $.ajax({
-        "url": "rest",
+        "url": "PHP/vuelogenerico.php?param="+JSON.stringify(objParametro),
         "type": "get",
         "dataType": "json",
         "success": function (vuelos) {
             console.log(vuelos);
             that.pintarVuelos(vuelos);
+        },
+        "error": function(er){
+            console.log(er.responseText);
+            console.log(er);
         }
     });
 }
 //Mock de vuelos
-ReservaVuelos.prototype.vuelosMock = function(){
-    var vuelos = [{origen:"Madrid", destino:"París", fecha:22/03/2017,nVuelo:3,aerolinea:"Aerolinea1",  precio:520},{plazasLibres:23, origen:"Albacete", destino:"Lleida", fecha:26/02/2017,nVuelo:1,aerolinea:"Aerolinea1", precio:875},{plazasLibres:120, fecha:12/04/2017, origen:"Córdoba", destino:"Menorca", nVuelo:7, aerolinea:"Aerolinea1", precio:775}]
+ReservaVuelos.prototype.vuelosMock = function () {
+    var vuelos = [{origen: "Madrid", horaSalida:14, horaLlegada:18, destino: "París", fecha: "22 / 03 / 2017", nVuelo: 3, aerolinea: "Aerolinea1", precio: 520}, {plazasLibres: 23, horaSalida:24, horaLlegada:3, origen: "Albacete", destino: "Lleida", fecha: "26 / 02 / 2017", nVuelo: 1, aerolinea: "Aerolinea1", precio: 875}, {plazasLibres: 120, horaSalida:8, horaLlegada:12, fecha: "12 / 04 / 2017", origen: "Córdoba", destino: "Menorca", nVuelo: 7, aerolinea: "Aerolinea1", precio: 775}]
     this.pintarVuelos(vuelos);
 }
 //Mock del combo de aerolineas
@@ -184,10 +194,10 @@ ReservaVuelos.prototype.comboAerolineasMock = function () {
     this.pintarSelect(aerolineas);
 }
 //Mock, No funciona, me devuelve el php entero en error.responseText
-ReservaVuelos.prototype.comboAerolineasMockPhp = function () {
+ReservaVuelos.prototype.comboAerolineas = function () {
     var that = this;
     $.ajax({
-        url: "JS/datosJSON.php",
+        url: "webresources/aerolinea",
         dataType: "json",
         type: "GET",
         success: function (aerolineas) {
@@ -212,36 +222,45 @@ ReservaVuelos.prototype.pintarSelect = function (aerolineas) {
         })
     }
 }
+
 //Pintar una lista vuelos con el objeto que le pasen
 
-/*************ARREGLANDO***************/
-/*ReservaVuelos.prototype.pintarVuelos = function (vuelos) {
+
+ReservaVuelos.prototype.pintarVuelos = function (vuelos) {
     var that = this;
-    var resultados = $("#resultados");
+    var tr;
     if (vuelos.length == 0) {
         console.log("No se ha recibido nada");
     } else {
-        $.each(vuelos, function (vuelo) {
-            var tr = $('<tr></tr>')
-                    .click(function(){
+        for(var i = 0; i < vuelos.length ; i++ ){
+                tr = $('<tr><td>'+ vuelos[i].nVuelo + '</td>'
+                    + "<td>" + vuelos[i].horaSalida + '</td>'
+                    + "<td>" + vuelos[i].horaLlegada + '</td>'
+                    + "<td>" + vuelos[i].origen + "</td>"
+                    + "<td>" + vuelos[i].destino + "</td>"
+                    + "<td>" + vuelos[i].aerolinea + "</td>"
+                    + "<td>" + vuelos[i].precio + "</td></tr>")
+                    console.log(tr)
+                    $("#tablaVuelos").find("table").append(tr);
+                    console.log(vuelos)
+                    console.log(vuelos[i])
+                    tr.click(function () {
                         that.dialogReserva($("#reservas").find("form"));
-            }).appendTo($("#tablaVuelos"));
-                var td = $('<td></td>')
-                    .text(vuelo[j])
-                    .appendTo(tr);
-            })
-        });
+                    });
+        }
+        
     }
-}*/
+}
 //Crea un dialogo con el form que le pases
 ReservaVuelos.prototype.dialogReserva = function (form) {
     form.dialog({
-        modal:true,
+        modal: true,
         resizable: false,
-        show: { effect: "blind", duration: 800 },
+        show: {effect: "blind", duration: 800},
         title: "Reservar Vuelo",
-        width: 500,
-        height:300
-        
+        width: 550,
+        height: 400,
+        position:{ my: "center", at: "center", of: window }
+
     })
 };
